@@ -7,8 +7,8 @@ archviz-frontend/yarn-error.log*
 archviz-frontend/pnpm-debug.log*
 archviz-frontend/lerna-debug.log*
 
-archviz-frontend/node_modules
-archviz-frontend/dist
+archviz-frontend/node_modules/
+archviz-frontend/dist/
 archviz-frontend/dist-ssr
 archviz-frontend/*.local
 
@@ -37,16 +37,16 @@ archviz-backend/.env.production
 archviz-backend/.phpactor.json
 archviz-backend/.phpunit.result.cache
 archviz-backend/.fleet
-archviz-backend/.idea
-archviz-backend/.nova
+archviz-backend/.idea/
+archviz-backend/.nova/
 archviz-backend/.phpunit.cache
-archviz-backend/.vscode
-archviz-backend/.zed
+archviz-backend/.vscode/
+archviz-backend/.zed/
 archviz-backend/auth.json
-archviz-backend/node_modules
-archviz-backend/public/build
-archviz-backend/public/hot
-archviz-backend/public/storage
+archviz-backend/node_modules/
+archviz-backend/public/build/
+archviz-backend/public/hot/
+archviz-backend/public/storage/
 archviz-backend/storage/*.key
 archviz-backend/storage/pail
 archviz-backend/vendor
