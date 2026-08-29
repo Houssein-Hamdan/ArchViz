@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* 1. Custom Dark Mode variant selector configuration for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+/* 2. Global Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-gray-900);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body,
+.dark body {
+  background-color: var(--color-gray-900) !important;
+  color: var(--color-gray-50) !important;
+}
+
+input, 
+textarea, 
+select, 
+button {
+  font-family: inherit;
+}
+
+/* -------------------------------------------------- */
+/* 3. Light Mode Adjustments (Ensuring high contrast & input clarity) */
+/* -------------------------------------------------- */
+:root:not(.dark) .text-gray-900,
+:root:not(.dark) .text-slate-900,
+:root:not(.dark) .text-gray-800,
+:root:not(.dark) .text-slate-800 {
+  color: #111827 !important;
+}
+
+:root:not(.dark) .text-gray-700,
+:root:not(.dark) .text-slate-700,
+:root:not(.dark) .text-gray-600,
+:root:not(.dark) .text-slate-600 {
+  color: #374151 !important;
+}
+
+:root:not(.dark) input,
+:root:not(.dark) textarea,
+:root:not(.dark) select {
+  color: #111827 !important;
+  background-color: #ffffff !important;
+}
+
+/* -------------------------------------------------- */
+/* 4. Global Dark Mode Overrides (Backgrounds, Texts & Borders) */
+/* -------------------------------------------------- */
+
+/* Card & Surface Backgrounds */
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark .bg-slate-50,
+.dark .bg-blue-50,
+.dark .bg-indigo-50 {
+  background-color: var(--color-gray-800) !important;
+}
+
+/* Dark Mode Form Input Overrides */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--color-gray-900) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-gray-700) !important;
+}
+
+/* Dark Mode Typography Colors */
+.dark .text-gray-900,
+.dark .text-slate-900,
+.dark .text-gray-800,
+.dark .text-slate-800,
+.dark .text-blue-800 {
+  color: var(--color-gray-100) !important;
+}
+
+.dark .text-gray-700,
+.dark .text-slate-700,
+.dark .text-gray-600,
+.dark .text-slate-600,
+.dark .text-gray-500 {
+  color: var(--color-gray-300) !important;
+}
+
+.dark .text-blue-600 {
+  color: var(--color-blue-400) !important;
+}
+
+/* Border Color Overrides */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-slate-200,
+.dark .border-blue-200 {
+  border-color: var(--color-gray-700) !important;
+}
+
+/* State Hover Effects */
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-gray-50:hover {
+  background-color: var(--color-gray-700) !important;
+}
+
+/* -------------------------------------------------- */
+/* 5. Homepage & Structural Layout Dark Mode Fixes */
+/* -------------------------------------------------- */
+.dark .bg-gradient-to-br,
+.dark [class*="bg-gradient-"] {
+  background-image: none !important;
+  background-color: var(--color-gray-900) !important;
+}
+
+.dark header {
+  background-color: var(--color-gray-800) !important;
+  border-bottom: 1px solid var(--color-gray-700) !important;
+}
+
+.dark main p {
+  color: var(--color-gray-300) !important;
+}
+
+.dark .grid > div {
+  background-color: var(--color-gray-800) !important;
+  border: 1px solid var(--color-gray-700) !important;
+}
+
+.dark .grid > div h3,
+.dark .grid > div div {
+  color: var(--color-white) !important;
+}
+
+.dark .grid > div p {
+  color: var(--color-gray-400) !important;
+}
+
+/* -------------------------------------------------- */
+/* 6. Custom Scrollbar Styling (Dark Mode) */
+/* -------------------------------------------------- */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: var(--color-gray-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-600);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-gray-500);
+}
