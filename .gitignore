@@ -31,7 +31,6 @@ archviz-backend/.DS_Store
 archviz-backend/.env
 archviz-backend/.env.example
 archviz-backend/.env.backup
-archviz-backend/composer.json
 archviz-backend/.env.production
 archviz-backend/.phpactor.json
 archviz-backend/.phpunit.result.cache
