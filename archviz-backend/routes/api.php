@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ArchitectureController;
 use App\Http\Controllers\Api\ArchitectureExploreController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\OtpController;
 
 /*
 |--------------------------------------------------------------
@@ -12,10 +11,7 @@ use App\Http\Controllers\Api\OtpController;
 |--------------------------------------------------------------
 */
 
-Route::post('/auth/send-otp', [OtpController::class, 'sendOtp']);
-Route::post('/auth/verify-otp', [OtpController::class, 'verifyOtp']);
-Route::post('/auth/complete-registration', [OtpController::class, 'completeRegistration']);
-Route::post('/auth/resend-otp', [OtpController::class, 'resendOtp']);
+
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
