@@ -425,19 +425,19 @@ http://localhost:5173
 
 ### Architecture Diagram
 
-![Architecture Diagram](./screenshots/diagram.png)
+![Architecture Diagram](./ScreenShots/diagram.png)
 
 ### Prompt
 
-![Prompt](./screenshots/prompt.png)
+![Prompt](./ScreenShots/prompt.png)
 
 ### Explore
 
-![Explore](./screenshots/explore.png)
+![Explore](./ScreenShots/explore.png)
 
 ### Implementation Plan
 
-![Implementation Plan](./screenshots/implementation.png)
+![Implementation Plan](./ScreenShots/implementation.png)
 
 ---
 
