@@ -2,7 +2,7 @@
 
 > Transform project requirements into complete system architecture designs, data flows, trade-offs, implementation plans, and database schemas in seconds using Google Gemini AI.
 
-🔗 **Live Demo:** [Archviz Live](https://archviz.vercel.app) *(Coming Soon)*  
+🔗 **Live Demo:** [Archviz Live](https://arch-viz-nine.vercel.app) 
 📂 **GitHub Repository:** https://github.com/Houssein-Hamdan/ArchViz/
 
 ---
