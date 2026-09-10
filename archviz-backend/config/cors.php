@@ -1,7 +1,7 @@
 <?php
 
 
-    /*
+/*
     |--------------------------------------------------------------------------
     | Cross-Origin Resource Sharing (CORS) Configuration
     |--------------------------------------------------------------------------
@@ -12,11 +12,14 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [
+        'http://localhost:5173',
+        'https://arch-viz-nine.vercel.app', // رابط الموقع على Vercel
+    ],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'], 
+    'allowed_headers' => ['*'],
 
     'exposed_headers' => [],
 
