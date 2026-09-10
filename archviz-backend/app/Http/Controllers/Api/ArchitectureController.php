@@ -30,6 +30,27 @@ class ArchitectureController extends Controller
         return response()->json($architecture);
     }
 
+
+    /**
+     * Delete an architecture owned by the authenticated user
+     */
+    public function destroy(Architecture $architecture, Request $request)
+    {
+        // Make sure the authenticated user owns this architecture
+        if ($architecture->user_id !== $request->user()->id) {
+            return response()->json([
+                'message' => 'You are not authorized to delete this architecture.'
+            ], 403);
+        }
+
+        $architecture->delete();
+
+        return response()->json([
+            'message' => 'Architecture deleted successfully.'
+        ]);
+    }
+
+
     // Validate and store a newly generated architecture in the database
     public function store(Request $request)
     {

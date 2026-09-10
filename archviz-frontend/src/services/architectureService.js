@@ -21,6 +21,10 @@ export const architectureService = {
     });
     return response.data;
   },
+  // Delete architecture
+  deleteArchitecture: async (architectureId) => { 
+    const response = await client.delete( `/architectures/${architectureId}` ); 
+    return response.data; },
 
   // Get user's architectures
   getUserArchitectures: async () => {

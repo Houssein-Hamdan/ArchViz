@@ -200,7 +200,7 @@ Rules:
 - Maximum 4 decisions.
 - Maximum 3 pros and 3 cons.
 - Keep descriptions under 20 words.
-- generate max 6 entities specifically to the requirement
+- generate max 8 entities specifically to the requirement
 - generate 2-4 phase only specifically to the requirement
 - Do not add Redis, queues, microservices, gateways, etc. without justification.
 - Do not over-engineer.

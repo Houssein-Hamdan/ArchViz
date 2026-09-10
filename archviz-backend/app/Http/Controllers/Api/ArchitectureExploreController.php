@@ -191,31 +191,38 @@ class ArchitectureExploreController extends Controller
         return response()->json($bookmarks);
     }
 
-    /**
-     * Fetch a public architecture by its share slug and increment its view counter
-     * GET /api/architectures/share/{slug}
-     */
-    public function viewArchitecture($slug, Request $request)
-    {
-        $architecture = Architecture::where('share_slug', $slug)
-            ->where('is_public', true)
-            ->with('user')
-            ->firstOrFail();
 
-        // Increment overall view counter
-        $architecture->incrementViews();
+/**
+ * Fetch a public architecture by its share slug
+ * GET /api/architectures/share/{slug}
+ */
+public function viewArchitecture($slug, Request $request)
+{
+    $architecture = Architecture::where('share_slug', $slug)
+        ->where('is_public', true)
+        ->with('user')
+        ->firstOrFail();
 
-        // Resolve user interaction status for the current session
-        $currentUser = $request->user();
-        $isLiked = $currentUser ? $architecture->isLikedBy($currentUser) : false;
-        $isBookmarked = $currentUser ? $architecture->isBookmarkedBy($currentUser) : false;
+    // Increment overall view counter
+    $architecture->incrementViews();
 
-        return response()->json([
-            'data' => $architecture,
-            'user_interactions' => [
-                'liked' => $isLiked,
-                'bookmarked' => $isBookmarked
-            ]
-        ]);
+    // Check current user's interactions if authenticated
+    $currentUser = $request->user();
+
+    $isLiked = false;
+    $isBookmarked = false;
+
+    if ($currentUser) {
+        $isLiked = $architecture->isLikedBy($currentUser);
+        $isBookmarked = $architecture->isBookmarkedBy($currentUser);
     }
+
+    return response()->json([
+        'data' => $architecture,
+        'user_interactions' => [
+            'liked' => $isLiked,
+            'bookmarked' => $isBookmarked,
+        ],
+    ]);
+}
 }

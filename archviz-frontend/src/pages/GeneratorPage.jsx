@@ -5,21 +5,17 @@ import PromptForm from '../components/Generator/PromptForm';
 import DiagramTabs from '../components/Generator/DiagramTabs';
 import ThemeToggle from '../components/ThemeToggle';
 import { ArrowLeft, Home } from 'lucide-react';
-
 export default function GeneratorPage() {
   const navigate = useNavigate();
   const { user } = useArchitectureStore();
   const [generatedArchitecture, setGeneratedArchitecture] = useState(null);
   const [diagramChanges, setDiagramChanges] = useState(null);
-
   useEffect(() => {
     if (!user) {
       navigate('/auth');
     }
   }, [user, navigate]);
-
   if (!user) return null;
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex flex-col">
       {/* Header */}
@@ -37,7 +33,6 @@ export default function GeneratorPage() {
               Archviz
             </h1>
           </div>
-
           <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto justify-between">
             <ThemeToggle />
             <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400 truncate">
@@ -55,7 +50,6 @@ export default function GeneratorPage() {
           </div>
         </div>
       </header>
-
       {/* Main Content */}
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 md:py-12">
         {!generatedArchitecture ? (
@@ -74,10 +68,17 @@ export default function GeneratorPage() {
               <ArrowLeft className="w-4 h-4" />
               Create Another Architecture
             </button>
-
             {/* Tabs Container */}
-            <div className="h-full md:h-[calc(100vh-200px)] bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-              <DiagramTabs
+              <div
+  className="
+    h-[500px]
+    sm:h-[550px]
+    md:h-[calc(100vh-200px)]
+    bg-white dark:bg-gray-800
+    rounded-lg shadow-lg overflow-hidden
+  "
+>
+                <DiagramTabs
                 architecture={generatedArchitecture}
                 diagramChanges={diagramChanges}
                 onSaveChanges={setDiagramChanges}
