@@ -40,40 +40,52 @@ export default function DiagramTabs({
    * Save architecture
    */
   const handleSave = async (diagramChanges = null) => {
+  try {
+    setIsSaving(true);
+
+    const diagramJson = diagramChanges || diagram;
+
+    const saveTitle =
+      title?.trim() ||
+      diagramJson?.title?.trim() ||
+      diagram?.title?.trim() ||
+      'Untitled Architecture';
+
+    const response = await architectureService.saveArchitecture(
+      saveTitle,
+      architecture.prompt_input,
+      architecture.tech_stack,
+      diagramJson,
+      diagram?.tradeoffs || null
+    );
+
+    const shareLink = `${window.location.origin}/share/${response.data.share_slug}`;
+
     try {
-      setIsSaving(true);
-      const diagramJson = diagramChanges || diagram;
-      const response = await architectureService.saveArchitecture(
-        title,
-        architecture.prompt_input,
-        architecture.tech_stack,
-        diagramJson,
-        diagram?.tradeoffs || null
+      await navigator.clipboard.writeText(shareLink);
+      toast.success(
+        'Architecture saved and share link copied!'
       );
-      const shareLink = `${window.location.origin}/share/${response.data.share_slug}`;
-      try {
-        await navigator.clipboard.writeText(shareLink);
-        toast.success(
-          'Architecture saved and share link copied!'
-        );
-      } catch {
-        toast.success(
-          'Architecture saved successfully!'
-        );
-      }
-      if (onArchitectureUpdate) {
-        onArchitectureUpdate(response.data);
-      }
-    } catch (error) {
-      console.error('Save architecture error:', error);
-      toast.error(
-        error?.response?.data?.message ||
-          'Failed to save architecture'
+    } catch {
+      toast.success(
+        'Architecture saved successfully!'
       );
-    } finally {
-      setIsSaving(false);
     }
-  };
+
+    if (onArchitectureUpdate) {
+      onArchitectureUpdate(response.data);
+    }
+  } catch (error) {
+    console.error('Save architecture error:', error);
+
+    toast.error(
+      error?.response?.data?.message ||
+        'Failed to save architecture'
+    );
+  } finally {
+    setIsSaving(false);
+  }
+};
   /*
    * Database count
    */
