@@ -9,6 +9,7 @@ class CorsMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+        error_log('CORS Middleware is running! Method: ' . $request->getMethod());
         $allowed_origins = [
             'http://localhost:5173',
             'https://arch-viz-nine.vercel.app',
