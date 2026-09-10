@@ -85,3 +85,11 @@ Route::middleware('auth:sanctum')->group(function () {
         [ArchitectureExploreController::class, 'userBookmarks']
     );
 });
+
+Route::options('/cors-test', function () {
+    return response()->json([
+        'server' => 'laravel',
+        'method' => request()->method(),
+        'origin' => request()->header('Origin'),
+    ]);
+});
