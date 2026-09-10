@@ -109,13 +109,8 @@ Breaks down architecture into actionable development phases:
 
 - **Entity Visualization:** Displays all database tables with primary keys, foreign keys, constraints, and column types (`int`, `string`, `text`, `timestamp`, etc.).
 - **Relationship Mapping:** Visualizes 1:1, 1:N, and N:M relationships clearly between entities.
-- **SQL Export:** Direct capability to copy generated `CREATE TABLE` SQL statements.
 
-### 5. 🔐 OTP Email Authentication
-
-- **Secure Registration:** One-Time Password (OTP) verification delivered via Gmail SMTP.
-- **Email Verification:** Ensures valid email addresses and passwordless access.
-- **Sanctum Tokens:** Secure Bearer token session management.
+  
 
 ### 6. 🌐 Explore & Community Feed
 
@@ -183,8 +178,7 @@ Breaks down architecture into actionable development phases:
 
 - **Framework:** Laravel 12
 - **Database:** MySQL
-- **Authentication:** Sanctum (Token-Based) + Email OTP
-- **Email Service:** Gmail SMTP
+- **Authentication:** Sanctum (Token-Based) 
 - **AI Integration:** Google Gemini API
 - **Rate Limiting:** Built-in Throttling Middleware
 
@@ -355,11 +349,6 @@ DB_PASSWORD=your_password
 
 GEMINI_API_KEY=your_gemini_api_key
 
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_app_password
 ```
 
 Run database migrations:
