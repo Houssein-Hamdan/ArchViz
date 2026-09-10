@@ -12,13 +12,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::options('/register', function () {
-    return response()->noContent();
-});
-
-Route::options('/login', function () {
-    return response()->noContent();
-});
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 // Rate Limiter AI Key
 Route::middleware('throttle:ai-generator')->group(function () {
