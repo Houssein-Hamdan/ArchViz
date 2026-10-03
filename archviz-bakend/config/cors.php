@@ -5,7 +5,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://arch-viz-nine.vercel.app'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
@@ -15,5 +15,5 @@ return [
 
     'max_age' => 3600,
 
-    'supports_credentials' => true, 
+    'supports_credentials' => false, 
 ];
