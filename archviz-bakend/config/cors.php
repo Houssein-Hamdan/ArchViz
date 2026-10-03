@@ -5,7 +5,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://arch-viz-nine.vercel.app'],
 
     'allowed_origins_patterns' => [],
 
