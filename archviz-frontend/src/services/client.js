@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://archviz-production.up.railway.app/api';
+const API_BASE_URL = 'https://archviz.onrender.com/api';
 
 const client = axios.create({
   baseURL: API_BASE_URL,
